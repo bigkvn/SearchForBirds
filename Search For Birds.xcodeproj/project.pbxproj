@@ -14,6 +14,7 @@
 		0A184A0527BEFFCC00276C41 /* Search_For_BirdsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A184A0427BEFFCC00276C41 /* Search_For_BirdsTests.swift */; };
 		0A184A0F27BEFFCC00276C41 /* Search_For_BirdsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A184A0E27BEFFCC00276C41 /* Search_For_BirdsUITests.swift */; };
 		0A184A1127BEFFCC00276C41 /* Search_For_BirdsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A184A1027BEFFCC00276C41 /* Search_For_BirdsUITestsLaunchTests.swift */; };
+		0A184A2827C4832600276C41 /* testStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A184A2727C4832600276C41 /* testStoryBoard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0A184A0A27BEFFCC00276C41 /* Search For BirdsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Search For BirdsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A184A0E27BEFFCC00276C41 /* Search_For_BirdsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search_For_BirdsUITests.swift; sourceTree = "<group>"; };
 		0A184A1027BEFFCC00276C41 /* Search_For_BirdsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search_For_BirdsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0A184A2727C4832600276C41 /* testStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = testStoryBoard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				0A1849F327BEFFC000276C41 /* Search_For_BirdsApp.swift */,
+				0A184A2727C4832600276C41 /* testStoryBoard.storyboard */,
 				0A1849F527BEFFC000276C41 /* ContentView.swift */,
 				0A1849F727BEFFCA00276C41 /* Assets.xcassets */,
 				0A1849F927BEFFCA00276C41 /* Preview Content */,
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A184A2827C4832600276C41 /* testStoryBoard.storyboard in Resources */,
 				0A1849FB27BEFFCA00276C41 /* Preview Assets.xcassets in Resources */,
 				0A1849F827BEFFCA00276C41 /* Assets.xcassets in Resources */,
 			);
