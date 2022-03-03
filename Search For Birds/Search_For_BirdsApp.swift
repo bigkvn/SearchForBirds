@@ -12,6 +12,7 @@ struct Search_For_BirdsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
     
   
         }
