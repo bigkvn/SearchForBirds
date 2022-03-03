@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0A1849F427BEFFC000276C41 /* Search_For_BirdsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1849F327BEFFC000276C41 /* Search_For_BirdsApp.swift */; };
-		0A1849F627BEFFC000276C41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1849F527BEFFC000276C41 /* ContentView.swift */; };
 		0A1849F827BEFFCA00276C41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1849F727BEFFCA00276C41 /* Assets.xcassets */; };
 		0A1849FB27BEFFCA00276C41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1849FA27BEFFCA00276C41 /* Preview Assets.xcassets */; };
 		0A184A0527BEFFCC00276C41 /* Search_For_BirdsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A184A0427BEFFCC00276C41 /* Search_For_BirdsTests.swift */; };
 		0A184A0F27BEFFCC00276C41 /* Search_For_BirdsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A184A0E27BEFFCC00276C41 /* Search_For_BirdsUITests.swift */; };
 		0A184A1127BEFFCC00276C41 /* Search_For_BirdsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A184A1027BEFFCC00276C41 /* Search_For_BirdsUITestsLaunchTests.swift */; };
+		0ADDF93027CFEE4F00D31070 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF92F27CFEE4E00D31070 /* MapView.swift */; };
+		0ADDF93227D0C6E000D31070 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF93127D0C6E000D31070 /* ContentView.swift */; };
+		0ADDF93427D1543600D31070 /* BirdAddLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF93327D1543500D31070 /* BirdAddLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		0A1849F027BEFFC000276C41 /* Search For Birds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Search For Birds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1849F327BEFFC000276C41 /* Search_For_BirdsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search_For_BirdsApp.swift; sourceTree = "<group>"; };
-		0A1849F527BEFFC000276C41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A1849F727BEFFCA00276C41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A1849FA27BEFFCA00276C41 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A184A0027BEFFCC00276C41 /* Search For BirdsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Search For BirdsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,9 @@
 		0A184A0A27BEFFCC00276C41 /* Search For BirdsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Search For BirdsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A184A0E27BEFFCC00276C41 /* Search_For_BirdsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search_For_BirdsUITests.swift; sourceTree = "<group>"; };
 		0A184A1027BEFFCC00276C41 /* Search_For_BirdsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search_For_BirdsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0ADDF92F27CFEE4E00D31070 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		0ADDF93127D0C6E000D31070 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0ADDF93327D1543500D31070 /* BirdAddLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdAddLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				0A1849F327BEFFC000276C41 /* Search_For_BirdsApp.swift */,
-				0A1849F527BEFFC000276C41 /* ContentView.swift */,
+				0ADDF93127D0C6E000D31070 /* ContentView.swift */,
+				0ADDF93327D1543500D31070 /* BirdAddLocation.swift */,
+				0ADDF92F27CFEE4E00D31070 /* MapView.swift */,
 				0A1849F727BEFFCA00276C41 /* Assets.xcassets */,
 				0A1849F927BEFFCA00276C41 /* Preview Content */,
 			);
@@ -257,8 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A1849F627BEFFC000276C41 /* ContentView.swift in Sources */,
+				0ADDF93027CFEE4F00D31070 /* MapView.swift in Sources */,
 				0A1849F427BEFFC000276C41 /* Search_For_BirdsApp.swift in Sources */,
+				0ADDF93227D0C6E000D31070 /* ContentView.swift in Sources */,
+				0ADDF93427D1543600D31070 /* BirdAddLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +428,7 @@
 				DEVELOPMENT_TEAM = 4MU56CS954;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let us access your location to use GPS serivices?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +458,7 @@
 				DEVELOPMENT_TEAM = 4MU56CS954;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let us access your location to use GPS serivices?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
