@@ -5,16 +5,33 @@
 //  Created by Kevin on 2/17/22.
 //
 import CoreLocationUI
+import CoreLocation
 import SwiftUI
 import MapKit
 
 struct ContentView: View {
+    
     @StateObject private var viewModel = ContentViewModel()
     @State private var locations = [BirdAddLocation]()
+    @State private var selectedPlace: BirdAddLocation?
     
     var body: some View {
         ZStack{
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: locations) {location in MapMarker( coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))}
+    	
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: locations) {location in MapAnnotation( coordinate:location.coordinate){
+            VStack{
+                Image(systemName: "star.circle")
+                    .resizable()
+                    .foregroundColor(.blue)
+                    .frame(width: 44, height: 44)
+                    .background(.white)
+                    .clipShape(Circle())
+                Text(location.name)
+                	
+                }
+            .onTapGesture{selectedPlace = location }
+            }
+        }
             .ignoresSafeArea()
             .onAppear{
                 viewModel.checkLocalPerm()
@@ -30,7 +47,7 @@ struct ContentView: View {
                    
                     } label: {
                         Image(systemName: "plus")
-                    }
+
                     .padding()
                     .background(.blue.opacity(0.75))
                     .foregroundColor(.white)
@@ -40,8 +57,15 @@ struct ContentView: View {
                     
                 }
             }
+            .sheet(item: $selectedPlace) {place in EditView(location: place){newLocation in
+                if let index = locations.firstIndex(of: place){
+                    locations[index] = newLocation
+                    
+                }
+            }
+                	 
+            }
         }
-        
     }
 }
 
@@ -50,17 +74,16 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-final class ContentViewModel: NSObject, ObservableObject,  CLLocationManagerDelegate {
     
+final class ContentViewModel: NSObject, ObservableObject,  CLLocationManagerDelegate {
     @Published  var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.74289 , longitude: -81.32487), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
-    var locationManager: CLLocationManager?
+    var locationManager:  CLLocationManager?
     
     func checkLocateServ(){
         if CLLocationManager.locationServicesEnabled(){
             locationManager = CLLocationManager()
-            locationManager!.delegate = self
-        }
+            locationManager!.delegate = self    }
         else{
             print("Enable Location Services")
         }
@@ -82,14 +105,15 @@ final class ContentViewModel: NSObject, ObservableObject,  CLLocationManagerDele
             
             region  = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan( latitudeDelta: 0.1, longitudeDelta: 0.1))
                                          
-        
         @unknown default:
             break
         }
-
     }
     func locationChangeAuth( manager: CLLocationManager){
         checkLocalPerm()
-    }
+        }
+    
+
+}
 }
 
