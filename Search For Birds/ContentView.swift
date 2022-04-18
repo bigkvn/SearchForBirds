@@ -36,6 +36,10 @@ struct ContentView: View {
             .onAppear{
                 viewModel.checkLocalPerm()
             }
+            Circle()
+                .fill(.blue)
+                .frame(width: 32, height:32)
+        
             VStack {
                 Spacer()
             
@@ -56,6 +60,7 @@ struct ContentView: View {
                     .padding(.trailing)
                     
                 }
+                    
             }
             .sheet(item: $selectedPlace) {place in EditView(location: place){newLocation in
                 if let index = locations.firstIndex(of: place){
@@ -76,7 +81,7 @@ struct ContentView_Previews: PreviewProvider {
 }
     
 final class ContentViewModel: NSObject, ObservableObject,  CLLocationManagerDelegate {
-    @Published  var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.74289 , longitude: -81.32487), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+    @Published  var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.74289 , longitude: -81.32487), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     var locationManager:  CLLocationManager?
     
