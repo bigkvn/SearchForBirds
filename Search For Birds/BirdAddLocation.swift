@@ -9,10 +9,9 @@ import Foundation
 import CoreLocation
 struct BirdAddLocation: Identifiable, Codable, Equatable {
     
-    var id: UUID
+    let id: UUID
     var  name: String
     var description: String
-    
     let latitude: Double
     let longitude: Double
     var coordinate: CLLocationCoordinate2D{ CLLocationCoordinate2D(latitude: latitude, longitude: longitude)}

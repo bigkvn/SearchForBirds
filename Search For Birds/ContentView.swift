@@ -17,8 +17,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-    	
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: locations) {location in MapAnnotation( coordinate:location.coordinate){
+            
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: locations) {location in MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude )){
             VStack{
                 Image(systemName: "star.circle")
                     .resizable()
@@ -31,6 +31,7 @@ struct ContentView: View {
                 }
             .onTapGesture{selectedPlace = location }
             }
+
         }
             .ignoresSafeArea()
             .onAppear{
@@ -60,6 +61,7 @@ struct ContentView: View {
                     .padding(.trailing)
                     
                 }
+                    
                     
             }
             .sheet(item: $selectedPlace) {place in EditView(location: place){newLocation in

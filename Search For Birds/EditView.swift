@@ -31,6 +31,7 @@ struct EditView: View {
                             
                         }
                     }
+                    
                 }
             }
             .navigationTitle("Bird location")
