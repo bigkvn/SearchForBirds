@@ -10,6 +10,8 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.74289 , longitude: -81.32487), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    
     
     @StateObject private var viewModel = ContentViewModel()
     @State private var locations = [BirdAddLocation]()
@@ -18,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: locations) {location in MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude )){
+            Map(coordinateRegion: $mapRegion, showsUserLocation: true, annotationItems: locations) {location in MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude )){
             VStack{
                 Image(systemName: "star.circle")
                     .resizable()
@@ -31,7 +33,7 @@ struct ContentView: View {
                 }
             .onTapGesture{selectedPlace = location }
             }
-
+              
         }
             .ignoresSafeArea()
             .onAppear{
@@ -47,7 +49,7 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     Button{
-                        let newLocation = BirdAddLocation(id: UUID(), name: "New Location", description: "", latitude: viewModel.region.center.latitude, longitude: viewModel.region.center.latitude)
+                        let newLocation = BirdAddLocation(id: UUID(), name: "New Location", description: "", latitude: mapRegion.center.latitude, longitude: mapRegion.center.latitude)
                         locations.append(newLocation)
                    
                     } label: {
@@ -68,9 +70,8 @@ struct ContentView: View {
                 if let index = locations.firstIndex(of: place){
                     locations[index] = newLocation
                     
+                    }
                 }
-            }
-                	 
             }
         }
     }
@@ -83,8 +84,7 @@ struct ContentView_Previews: PreviewProvider {
 }
     
 final class ContentViewModel: NSObject, ObservableObject,  CLLocationManagerDelegate {
-    @Published  var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.74289 , longitude: -81.32487), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    
+  
     var locationManager:  CLLocationManager?
     
     func checkLocateServ(){
@@ -108,10 +108,9 @@ final class ContentViewModel: NSObject, ObservableObject,  CLLocationManagerDele
         case .denied:
             print("Access denied, please change location permissions from settings")
             
-        case .authorizedAlways, .authorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse: break
             
-            region  = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan( latitudeDelta: 0.1, longitudeDelta: 0.1))
-                                         
+                             
         @unknown default:
             break
         }

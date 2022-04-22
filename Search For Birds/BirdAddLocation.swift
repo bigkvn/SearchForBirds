@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 struct BirdAddLocation: Identifiable, Codable, Equatable {
     
-    let id: UUID
+    var  id: UUID
     var  name: String
     var description: String
     let latitude: Double

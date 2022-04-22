@@ -17,6 +17,7 @@
 		0ADDF93027CFEE4F00D31070 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF92F27CFEE4E00D31070 /* MapView.swift */; };
 		0ADDF93227D0C6E000D31070 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF93127D0C6E000D31070 /* ContentView.swift */; };
 		0ADDF93427D1543600D31070 /* BirdAddLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF93327D1543500D31070 /* BirdAddLocation.swift */; };
+		B7E1F8B3281256AA0077FD1F /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7E1F8B2281256AA0077FD1F /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		0ADDF92F27CFEE4E00D31070 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0ADDF93127D0C6E000D31070 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0ADDF93327D1543500D31070 /* BirdAddLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdAddLocation.swift; sourceTree = "<group>"; };
+		B7E1F8B2281256AA0077FD1F /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		0A1849E727BEFFC000276C41 = {
 			isa = PBXGroup;
 			children = (
+				B7E1F8B2281256AA0077FD1F /* Storyboard.storyboard */,
 				0A1849F227BEFFC000276C41 /* Search For Birds */,
 				0A184A0327BEFFCC00276C41 /* Search For BirdsTests */,
 				0A184A0D27BEFFCC00276C41 /* Search For BirdsUITests */,
@@ -102,8 +105,8 @@
 			children = (
 				0A1849F327BEFFC000276C41 /* Search_For_BirdsApp.swift */,
 				0ADDF93127D0C6E000D31070 /* ContentView.swift */,
-				0A6C311627D255BD00CA5E0B /* EditView.swift */,
 				0ADDF93327D1543500D31070 /* BirdAddLocation.swift */,
+				0A6C311627D255BD00CA5E0B /* EditView.swift */,
 				0ADDF92F27CFEE4E00D31070 /* MapView.swift */,
 				0A1849F727BEFFCA00276C41 /* Assets.xcassets */,
 				0A1849F927BEFFCA00276C41 /* Preview Content */,
@@ -242,6 +245,7 @@
 			files = (
 				0A1849FB27BEFFCA00276C41 /* Preview Assets.xcassets in Resources */,
 				0A1849F827BEFFCA00276C41 /* Assets.xcassets in Resources */,
+				B7E1F8B3281256AA0077FD1F /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
