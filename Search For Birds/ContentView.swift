@@ -4,23 +4,25 @@
 //
 //  Created by Kevin on 2/17/22.
 //
+import Combine
 import CoreLocationUI
 import CoreLocation
 import SwiftUI
 import MapKit
 
 struct ContentView: View {
-    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.74289 , longitude: -81.32487), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    @State private var mapType: MKMapType = .hybrid
     
-    
+
+    @ObservedObject private var locationManager = LocationManager()
     @StateObject private var viewModel = ContentViewModel()
     @State private var locations = [BirdAddLocation]()
     @State private var selectedPlace: BirdAddLocation?
-    
-    var body: some View {
+    @State private var cancellable: AnyCancellable?
+    var body:  some View {
         ZStack{
             
-            Map(coordinateRegion: $mapRegion, showsUserLocation: true, annotationItems: locations) {location in MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude )){
+            Map( coordinateRegion: $viewModel.mapRegion, interactionModes: .all, showsUserLocation: true, userTrackingMode: nil, annotationItems: locations) {location in MapAnnotation(coordinate: location.coordinate){
             VStack{
                 Image(systemName: "star.circle")
                     .resizable()
@@ -37,7 +39,7 @@ struct ContentView: View {
         }
             .ignoresSafeArea()
             .onAppear{
-                viewModel.checkLocalPerm()
+                setCurrentLocation()
             }
             Circle()
                 .fill(.blue)
@@ -49,7 +51,9 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     Button{
-                        let newLocation = BirdAddLocation(id: UUID(), name: "New Location", description: "", latitude: mapRegion.center.latitude, longitude: mapRegion.center.latitude)
+                        //creates new instance of Bird point
+                        let newLocation = BirdAddLocation(id: UUID(), name: "", description: "", selectedBird: "", birdCount: "", latitude: viewModel.mapRegion.center.latitude, longitude: viewModel.mapRegion.center.longitude)
+                        
                         locations.append(newLocation)
                    
                     } label: {
@@ -62,15 +66,16 @@ struct ContentView: View {
                     .clipShape(Circle())
                     .padding(.trailing)
                     
-                }
+                            }
                     
                     
-            }
+                        }
+   
+                    }
             .sheet(item: $selectedPlace) {place in EditView(location: place){newLocation in
                 if let index = locations.firstIndex(of: place){
                     locations[index] = newLocation
                     
-                    }
                 }
             }
         }
@@ -80,46 +85,27 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        
     }
 }
     
 final class ContentViewModel: NSObject, ObservableObject,  CLLocationManagerDelegate {
-  
-    var locationManager:  CLLocationManager?
-    
-    func checkLocateServ(){
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self    }
-        else{
-            print("Enable Location Services")
-        }
+
+        @Published var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.74289 , longitude: -81.32487), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     }
-    func checkLocalPerm() {
-        guard let locationManager = locationManager else {
-            return
-        }
-        switch locationManager.authorizationStatus{
+    private func setCurrentLocation(){
+        cancellable = locationManager.$locate.sink { location in viewModel.mapRegion = MKCoordinateRegion(center: location?.coordinate ?? CLLocationCoordinate2D(), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
                 
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            print("Access is restricted")
-        case .denied:
-            print("Access denied, please change location permissions from settings")
-            
-        case .authorizedAlways, .authorizedWhenInUse: break
-            
-                             
-        @unknown default:
-            break
-        }
-    }
-    func locationChangeAuth( manager: CLLocationManager){
-        checkLocalPerm()
-        }
     
+ 
+        
+        
+    }
 
 }
 }
+
+    
+
 
