@@ -17,6 +17,7 @@
 		0ADDF93027CFEE4F00D31070 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF92F27CFEE4E00D31070 /* MapView.swift */; };
 		0ADDF93227D0C6E000D31070 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF93127D0C6E000D31070 /* ContentView.swift */; };
 		0ADDF93427D1543600D31070 /* BirdAddLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDF93327D1543500D31070 /* BirdAddLocation.swift */; };
+		B7E1F8B72812A86C0077FD1F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E1F8B62812A86C0077FD1F /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		0ADDF92F27CFEE4E00D31070 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0ADDF93127D0C6E000D31070 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0ADDF93327D1543500D31070 /* BirdAddLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdAddLocation.swift; sourceTree = "<group>"; };
+		B7E1F8B62812A86C0077FD1F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,11 +104,12 @@
 			children = (
 				0A1849F327BEFFC000276C41 /* Search_For_BirdsApp.swift */,
 				0ADDF93127D0C6E000D31070 /* ContentView.swift */,
-				0A6C311627D255BD00CA5E0B /* EditView.swift */,
 				0ADDF93327D1543500D31070 /* BirdAddLocation.swift */,
+				0A6C311627D255BD00CA5E0B /* EditView.swift */,
 				0ADDF92F27CFEE4E00D31070 /* MapView.swift */,
 				0A1849F727BEFFCA00276C41 /* Assets.xcassets */,
 				0A1849F927BEFFCA00276C41 /* Preview Content */,
+				B7E1F8B62812A86C0077FD1F /* LocationManager.swift */,
 			);
 			path = "Search For Birds";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				0ADDF93027CFEE4F00D31070 /* MapView.swift in Sources */,
 				0A6C311727D255BD00CA5E0B /* EditView.swift in Sources */,
+				B7E1F8B72812A86C0077FD1F /* LocationManager.swift in Sources */,
 				0A1849F427BEFFC000276C41 /* Search_For_BirdsApp.swift in Sources */,
 				0ADDF93227D0C6E000D31070 /* ContentView.swift in Sources */,
 				0ADDF93427D1543600D31070 /* BirdAddLocation.swift in Sources */,
@@ -432,7 +436,10 @@
 				DEVELOPMENT_TEAM = 4MU56CS954;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let us access your location to use GPS serivices?";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Let us access your location to use GPS services?";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let us access your location to use GPS services?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -462,7 +469,11 @@
 				DEVELOPMENT_TEAM = 4MU56CS954;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let us access your location to use GPS serivices?";
+				"INFOPLIST_FILE[sdk=*]" = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Let us access your location to use GPS services?";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let us access your location to use GPS services?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
